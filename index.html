@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/068007a90a.js" crossorigin="anonymous"></script>
+
+  <head>
+    <title>ENCRIPTADOR ALURA</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+      * {
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        height: 80px;
+        background-color: #dde1e7;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nombre{
+        margin-right: 40px;
+        color: #808080;
+        font-size: 20px;
+      }
+
+      .container {
+        height: calc(100vh - 80px);
+        display: flex;
+        flex-direction: row;
+        background: #dde1e7;
+        box-shadow: -3px -3px 7px #ffffff73,
+          2px 2px 5px rgba(94, 104, 121, 0.288);
+      }
+
+
+      .div1 {
+        width: 60%;
+        margin: 20px 10px 20px 20px;
+        background-color: #dde1e7;
+        border-radius: 20px;
+        box-shadow: -3px -3px 7px #ffffff73,
+          2px 2px 5px rgba(94, 104, 121, 0.288);
+      }
+
+      .div2 {
+        width: calc(40% - 20px);
+        margin: 20px 20px 20px 10px;
+        background-color: #dde1e7;
+        border-radius: 20px;
+        box-shadow: -3px -3px 7px #ffffff73,
+          2px 2px 5px rgba(94, 104, 121, 0.288);
+      }
+
+      .div1 .keys {
+        display: flex;
+        justify-content: center;
+      }
+
+      .div1 .keys input {
+        height: 50px;
+        min-width: 50px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background: #dde1e7;
+        box-shadow: -3px -3px 7px #ffffff73,
+          2px 2px 5px rgba(94, 104, 121, 0.288);
+        /* background: #131419; */
+        /* box-shadow: 2px 2px 5px rgba(0,0,0,0.5),
+              -3px -3px 7px rgba(255,255,255,0.05); */
+        margin: 10px;
+        color: grey;
+        /* color: #c7c7c7; */
+        font-size: 20px;
+        border-radius: 5px;
+        cursor: default;
+      }
+
+      .div1 .keys a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        min-width: 30px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background: #dde1e7;
+        box-shadow: -3px -3px 7px #ffffff73,
+          2px 2px 5px rgba(94, 104, 121, 0.288);
+        margin: 10px;
+        color: grey;
+        font-size: 20px;
+        border-radius: 5px;
+        cursor: default;
+      }
+
+      .div1 .keys a:active {
+        font-size: 19px;
+        color: #3498db;
+        box-shadow: inset -3px -3px 7px #ffffff73,
+          inset 2px 2px 5px rgba(94, 104, 121, 0.288);
+        /* box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5),
+              inset -3px -3px 7px rgba(255,255,255,0.05); */
+      }
+
+
+      .div1 .keys .space {
+        height: 50px;
+        min-width: 50px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        background: #dde1e7;
+        box-shadow: -3px -3px 7px #ffffff73,
+          2px 2px 5px rgba(94, 104, 121, 0.288);
+        margin: 10px;
+        color: grey;
+        font-size: 20px;
+        border-radius: 5px;
+        cursor: default;
+      }
+
+      .div1 .keys input:active {
+        font-size: 19px;
+        color: #3498db;
+        box-shadow: inset -3px -3px 7px #ffffff73,
+          inset 2px 2px 5px rgba(94, 104, 121, 0.288);
+        /* box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5),
+              inset -3px -3px 7px rgba(255,255,255,0.05); */
+      }
+
+      .space {
+        width: 450px;
+      }
+
+      .div1 .display {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 26px;
+        margin-top: 26px;
+        user-select: none;
+        text-align: center;
+      }
+
+      .div2 .display {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 26px;
+        margin-top: 26px;
+        user-select: none;
+        text-align: center;
+      }
+
+      .div1 .display textarea {
+        height: 100%;
+        width: 710px;
+        border: none;
+        outline: none;
+        resize: none;
+        color: #808080;
+        font-size: 20px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        background: #dde1e7;
+        box-shadow: inset -3px -3px 7px #ffffff73,
+          inset 2px 2px 5px rgba(94, 104, 121, 0.288);
+      }
+
+      .div2 .display textarea {
+        box-sizing: border-box;
+        height: 150px;
+        width: 450px;
+        border: none;
+        outline: none;
+        resize: none;
+        color: #808080;
+        font-size: 20px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        background: #dde1e7;
+        box-shadow: inset -3px -3px 7px #ffffff73,
+          inset 2px 2px 5px rgba(94, 104, 121, 0.288);
+      }
+
+      .divimg {
+        box-sizing: border-box;
+        background-color: #dde1e7;
+        height: 280px;
+        margin: 20px;
+      }
+
+      .munieco {
+        display: block;
+        /* Asegúrate de que la imagen tenga un ancho fijo */
+        margin: 0 auto;
+        width: 250px;
+        height: 250px;
+      }
+    </style>
+  </head>
+
+<body>
+  <header>
+    <img src="imagenes/Frame 6.png" alt="">
+    <h1 class="nombre">KEVIN RIOS NICHO</h1>
+  </header>
+  <div class="container">
+    <div class="div1">
+      <div class="display">
+        <textarea name="textarea" id="text" cols="30" rows="10" class="text-area"></textarea>
+      </div>
+      <div class="keys">
+        <input type="button" value="q" name="q" onclick="disp(q.value)" id="q">
+        <input type="button" value="w" name="w" onclick="disp(w.value)" id="w">
+        <input type="button" value="e" name="e" onclick="disp(e.value)" id="e">
+        <input type="button" value="r" name="r" onclick="disp(r.value)" id="r">
+        <input type="button" value="t" name="t" onclick="disp(t.value)" id="t">
+        <input type="button" value="y" name="y" onclick="disp(y.value)" id="y">
+        <input type="button" value="u" name="u" onclick="disp(u.value)" id="u">
+        <input type="button" value="i" name="i" onclick="disp(i.value)" id="i">
+        <input type="button" value="o" name="o" onclick="disp(o.value)" id="o">
+        <input type="button" value="p" name="p" onclick="disp(p.value)" id="p">
+      </div>
+      <div class="keys">
+        <input type="button" value="a" name="a" onclick="disp(a.value)" id="a">
+        <input type="button" value="s" name="s" onclick="disp(s.value)" id="s">
+        <input type="button" value="d" name="d" onclick="disp(d.value)" id="d">
+        <input type="button" value="f" name="f" onclick="disp(f.value)" id="f">
+        <input type="button" value="g" name="g" onclick="disp(g.value)" id="g">
+        <input type="button" value="h" name="h" onclick="disp(h.value)" id="h">
+        <input type="button" value="j" name="j" onclick="disp(j.value)" id="j">
+        <input type="button" value="k" name="k" onclick="disp(k.value)" id="k">
+        <input type="button" value="l" name="l" onclick="disp(l.value)" id="l">
+      </div>
+      <div class="keys">
+        <a type="button" id="enviar">Enviar</a>
+        <input type="button" value="z" name="z" onclick="disp(z.value)" id="z">
+        <input type="button" value="x" name="x" onclick="disp(x.value)" id="x">
+        <input type="button" value="c" name="c" onclick="disp(c.value)" id="c">
+        <input type="button" value="v" name="v" onclick="disp(v.value)" id="v">
+        <input type="button" value="b" name="b" onclick="disp(b.value)" id="b">
+        <input type="button" value="n" name="n" onclick="disp(n.value)" id="n">
+        <input type="button" value="m" name="m" onclick="disp(m.value)" id="m">
+        <a type="button" id="delete"><i class="fa-solid fa-delete-left" id="dlt"></i></a>
+
+
+      </div>
+      <div class="keys">
+        <input type="button" id="space" class="space">
+        <a type="button" id="desencriptar">Desencriptar</i></a>
+      </div>
+    </div>
+    <div class="div2">
+      <div class="display" id="displaymsj">
+        <textarea name="textarea" id="mensaje" cols="30" rows="10"></textarea>
+      </div>
+      <div class="divimg">
+        <img src="imagenes/Muñeco.png" alt="" class="munieco">
+      </div>
+    </div>
+  </div>
+  <script>
+
+
+    const spaceBtn = document.querySelector("#space");
+
+    const Keydelete = document.querySelector("#delete");
+
+    const textarea = document.querySelector("#text");
+
+    const enviar = document.querySelector("#enviar");
+
+    const desencriptartxt = document.querySelector("#desencriptar");
+
+    const mensaje = document.querySelector("#mensaje");
+
+    const display = document.querySelector("#displaymsj");
+
+    displaymsj.addEventListener("click", function () {
+      mensaje.select();
+
+      try {
+        const successful = document.execCommand('copy');
+        const msg = successful ? 'Texto copiado al portapapeles' : 'Error al copiar el texto';
+        alert(msg);
+      } catch (err) {
+        console.log('No se pudo copiar el texto: ', err);
+      }
+    });
+
+    function encriptar(stringEncriptada) {
+      let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
+      stringEncriptada = stringEncriptada.toLowerCase()
+      for (let i = 0; i < matrizCodigo.length; i++) {
+        if (stringEncriptada.includes(matrizCodigo[i][0])) {
+          stringEncriptada = stringEncriptada.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1])
+        }
+      }
+      return stringEncriptada
+    }
+
+
+    //Laves de encriptacion
+    // `La letra "e" es convertida para "enter"`
+    // `La letra "i" es convertida para "imes"`
+    // `La letra "a" es convertida para "ai"`
+    // `La letra "o" es convertida para "ober"`
+    // `La letra "u" es convertida para "ufat"`
+
+    enviar.addEventListener("click", function () {
+      const textoEncriptado = encriptar(textarea.value)
+      mensaje.value = textoEncriptado
+    });
+
+    desencriptartxt.addEventListener("click", function () {
+      const textoEncriptado = desencriptar(textarea.value)
+      mensaje.value = textoEncriptado
+    });
+
+
+    function desencriptar(stringDesencriptada) {
+      let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
+      stringDesencriptada = stringDesencriptada.toLowerCase()
+      for (let i = 0; i < matrizCodigo.length; i++) {
+        if (stringDesencriptada.includes(matrizCodigo[i][1])) {
+          stringDesencriptada = stringDesencriptada.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0])
+        }
+
+      }
+      return stringDesencriptada
+    }
+
+
+    function copiar() {
+      mensaje.select();
+      navigator.clipboard.writeText(mensaje.value)
+      mensaje.value = "";
+      alert("Texto Copiado")
+    }
+
+
+    function disp(result) {
+      textarea.value = textarea.value + result;
+      spaceBtn.onclick = (() => {
+        textarea.value += " ";
+      });
+
+      Keydelete.onclick = (() => {
+        const text = textarea.value;
+        textarea.value = text.substring(0, text.length - 1);
+      });
+
+    }
+
+    /*myscBtn.onclick = () => {
+        const inputs = document.querySelectorAll("input:not(.exclude)");
+        for (let i = 0; i < inputs.length; i++) {
+            if (isUpperCase) {
+                inputs[i].value = inputs[i].value.toUpperCase();
+            } else {
+                inputs[i].value = inputs[i].value.toLowerCase();
+            }
+        }
+        isUpperCase = !isUpperCase; // alternar el estado de mayúsculas/minúsculas
+    };*/
+
+    
+
+  </script>
+</body>
+
+</html>
